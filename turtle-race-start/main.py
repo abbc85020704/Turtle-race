@@ -9,7 +9,7 @@ background = Turtle(shape="square")    # 調整背景大小
 background.shapesize(stretch_wid=20, stretch_len=30)
 background.color("forestgreen")        # 調整背景顏色
 user_bet = screen.textinput(title="Make your bet", prompt="Which turtle will win the race? Enter a color: (red、orange、purple、yellow)")   # 跳出視窗
-colors = ["red", "orange", "purple", "yellow"]   # 看要設定幾隻烏龜
+colors = ["red", "orange", "purple", "yellow", "blue"]    # 看要設定幾隻烏龜
 all_turtle = []
 
 for block_index in range(10):           # 終點線黑色部分
@@ -28,11 +28,11 @@ for block_index in range(9):            # 終點線白色部分
     end_line.speed(0)
     end_line.goto(x=280, y=-155 + block_index * 40)
 
-for turtle_index in range(0, 4):    # 看要設定幾隻烏龜
+for turtle_index in range(0, 5):    # 看要設定幾隻烏龜
     new_turtle = Turtle(shape="turtle")
     new_turtle.color(colors[turtle_index])
     new_turtle.penup()
-    new_turtle.goto(x=-280, y=-60 + turtle_index * 40)
+    new_turtle.goto(x=-280, y=-(len(colors)-1) * 20 + turtle_index * 40)
     all_turtle.append(new_turtle)
 
 staring_line = Turtle(shape="circle")    # 畫起跑線
@@ -44,6 +44,21 @@ staring_line.sety(-150)
 staring_line.pendown()
 staring_line.goto(x=-260, y=150)
 staring_line.write(arg="Starting line", font=("Verdana", 14, "normal"))
+
+
+def draw_racetracks(num):                          # 依照烏龜數量畫賽道
+    for i in range(0, 15):
+        racetracks = Turtle(shape="square")
+        racetracks.color("white")
+        racetracks.shapesize(stretch_len=1.2, stretch_wid=0.2)
+        racetracks.penup()
+        racetracks.speed(0)
+        racetracks.goto(x=-240 + i * 35, y=-len(all_turtle) * 20 + num * 40)
+
+
+for j in range(0, len(all_turtle) + 1):            # 賽道位置
+    draw_racetracks(j)
+
 
 count_down = Turtle()                    # 倒數計時
 count_down.penup()
