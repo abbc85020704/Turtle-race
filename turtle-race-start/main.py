@@ -81,5 +81,3 @@ while is_race_on == True:
         turtle.forward(rand_distance)
 
 screen.exitonclick()
-
-print(5)
