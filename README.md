@@ -1,2 +1,2 @@
 # Turtle-race
-1. [Google](https://www.google.com)
+1. Write a program that moves a turtle object horizontally until it reaches our calculated finish line.

@@ -1,4 +1,4 @@
-from turtle import Turtle, Screen   # turtle, module; Turtle class
+from turtle import Turtle, Screen   # turtle, library; Turtle class
 import random    # random是standard library
 import time
 
