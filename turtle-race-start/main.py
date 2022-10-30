@@ -5,14 +5,14 @@ import time
 screen = Screen()
 
 screen.setup(width=600, height=400)    # 調整畫面大小
-background = Turtle(shape="square")
+background = Turtle(shape="square")    # 調整背景大小
 background.shapesize(stretch_wid=20, stretch_len=30)
-background.color("forestgreen")
+background.color("forestgreen")        # 調整背景顏色
 user_bet = screen.textinput(title="Make your bet", prompt="Which turtle will win the race? Enter a color: (red、orange、purple、yellow)")   # 跳出視窗
-colors = ["red", "orange", "purple", "yellow"]   # 幾隻
+colors = ["red", "orange", "purple", "yellow"]   # 看要設定幾隻烏龜
 all_turtle = []
 
-for block_index in range(10):
+for block_index in range(10):           # 終點線黑色部分
     end_line = Turtle(shape="square")
     end_line.color("black")
     end_line.shapesize(stretch_wid=0.9)
@@ -20,7 +20,7 @@ for block_index in range(10):
     end_line.speed(0)
     end_line.goto(x=280, y=-175 + block_index * 40)
 
-for block_index in range(9):
+for block_index in range(9):            # 終點線白色部分
     end_line = Turtle(shape="square")
     end_line.color("white")
     end_line.shapesize(stretch_wid=0.9)
@@ -28,14 +28,14 @@ for block_index in range(9):
     end_line.speed(0)
     end_line.goto(x=280, y=-155 + block_index * 40)
 
-for turtle_index in range(0, 4):    # 幾隻
+for turtle_index in range(0, 4):    # 看要設定幾隻烏龜
     new_turtle = Turtle(shape="turtle")
     new_turtle.color(colors[turtle_index])
     new_turtle.penup()
     new_turtle.goto(x=-280, y=-60 + turtle_index * 40)
     all_turtle.append(new_turtle)
 
-staring_line = Turtle(shape="circle")
+staring_line = Turtle(shape="circle")    # 畫起跑線
 staring_line.hideturtle()
 staring_line.width(5)
 staring_line.penup()
@@ -45,7 +45,7 @@ staring_line.pendown()
 staring_line.goto(x=-260, y=150)
 staring_line.write(arg="Starting line", font=("Verdana", 14, "normal"))
 
-count_down = Turtle()
+count_down = Turtle()                    # 倒數計時
 count_down.penup()
 count_down.goto(x=-10, y=-30)
 count = 3
@@ -56,7 +56,7 @@ while count > 0:
     count_down.clear()
     count -= 1
 
-slogan = Turtle()
+slogan = Turtle()                         # GO!
 slogan.hideturtle()
 slogan.penup()
 slogan.goto(x=-10, y=-30)
@@ -66,7 +66,7 @@ slogan.clear()
 
 is_race_on = True
 
-while is_race_on == True:
+while is_race_on == True:          # 是否要繼續跑
     for turtle in all_turtle:
         if turtle.xcor() > 250:    # 到終點
             count += 1
@@ -77,7 +77,7 @@ while is_race_on == True:
             else:
                 print(f"The {winning_color} turtle is the winner.")
 
-        rand_distance = random.randint(0, 10)
+        rand_distance = random.randint(0, 10)   # 一次走多少
         turtle.forward(rand_distance)
 
 screen.exitonclick()
